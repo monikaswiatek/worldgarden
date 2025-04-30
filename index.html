@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flowers of the World: A Global Bloom</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #4CAF50;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    .flower {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      margin: 20px auto;
+      padding: 20px;
+      max-width: 600px;
+      text-align: center;
+    }
+    h2 {
+      color: #4CAF50;
+    }
+    p {
+      font-size: 1.2em;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Flowers of the World: A Global Bloom</h1>
+  </header>
+
+  <div class="flower" id="flower">
+    <!-- Content will be dynamically inserted here -->
+  </div>
+
+  <script>
+  const plantsAndPoems = [
+  { country: 'Algeria', plant: 'Nerium Oleander', poem: "The Nerium blooms where sun's rays blaze,\nin Algeria’s heart, it forever stays.\nWith petals of pink, fierce yet pure,\nA symbol of strength that will endure." },
+  { country: 'Armenia', plant: 'Armenian Iris', poem: "The Iris stands with colors bright,\nin Armenia’s land, it greets the light.\nA flower so royal, so noble, so true,\nA heritage rooted, forever in view." },
+  { country: 'Azerbaijan', plant: 'Khari Bulbul', poem: "The Khari Bulbul, a blossom so rare,\nin Azerbaijan’s hills, it fills the air.\nWith petals of white, and fragrance so sweet,\nA symbol of unity, where mountains meet." },
+  { country: 'Brazil', plant: 'Ipê', poem: "The Ipê in Brazil, so bold and grand,\nits yellow blooms light up the land.\nA symbol of hope that forever grows,\nIn Brazil’s soul, where the river flows." },
+  { country: 'Bangladesh', plant: 'Water Lily', poem: "The water lily in waters deep,\nin Bangladesh, its beauty keeps.\nA symbol of peace, soft and serene,\nA nation’s soul, forever seen." },
+  { country: 'Belgium', plant: 'Red Poppy', poem: "The Red Poppy, bright as the dawn,\nin Belgium’s fields, it’s reborn.\nA tribute to those who fought with grace,\nA flower of remembrance in every place." },
+  { country: 'Canada', plant: 'Maple Leaf', poem: "The Maple Leaf, red and bold,\nin Canada’s forests, a story told.\nA leaf of strength, a nation’s pride,\nIn the northern winds, it will always glide." },
+  { country: 'Colombia', plant: 'Cattleya Orchid', poem: "The Cattleya blooms, a beauty rare,\nin Colombia’s skies, it fills the air.\nA flower of elegance, grace, and light,\nA symbol of joy, shining bright." },
+  { country: 'China', plant: 'Plum Blossom', poem: "The Plum Blossom, delicate and fair,\nin China’s gardens, beyond compare.\nA flower of hope in the coldest night,\nA symbol of strength, with purest light." },
+  { country: 'Denmark', plant: 'Margarite Daisy', poem: "The Margarite Daisy, white and pure,\nin Denmark's fields, it will endure.\nA symbol of love, a heart so true,\nIn every petal, dreams come through." },
+  { country: 'Dominica', plant: 'Bay Rose', poem: "The Bay Rose blooms with fragrance sweet,\nin Dominica, it’s quite the treat.\nA flower of grace, of strength, of might,\nIt fills the island with pure delight." },
+  { country: 'Egypt', plant: 'Lotus Flower', poem: "The Lotus blooms by Egypt's Nile,\nits beauty lasting for miles and miles.\nA symbol of rebirth, of life anew,\nIn Egypt’s land, it forever grew." },
+  { country: 'Estonia', plant: 'Cornflower', poem: "The Cornflower in Estonia’s breeze,\nits blue so bright, its heart at ease.\nA symbol of freedom, bold and bright,\nA nation’s pride, a pure delight." },
+  { country: 'France', plant: 'Lily', poem: "The Lily in France, so pure, so bright,\na symbol of royalty, shining light.\nIt whispers of elegance, grace, and pride,\nIn the heart of France, it will always reside." },
+  { country: 'Finland', plant: 'Lily of the Valley', poem: "The Lily of the Valley, soft and sweet,\nin Finland’s forests, it’s a treat.\nA flower of purity, small and fair,\nIn Finland’s beauty, it fills the air." },
+  { country: 'Greece', plant: 'Primrose', poem: "The Primrose blooms in Greece’s sun,\na symbol of life that’s just begun.\nIts colors warm, its petals bright,\nA flower of joy in the Mediterranean light." },
+  { country: 'Germany', plant: 'Cornflower', poem: "The Cornflower stands in Germany’s fields,\nwith vibrant blue, its strength it yields.\nA symbol of beauty, bold and true,\nIn every petal, history grew." },
+  { country: 'Haiti', plant: 'Hibiscus', poem: "The Hibiscus blooms in Haiti's air,\na symbol of beauty beyond compare.\nWith petals bright and colors so true,\nA nation’s heart, it will renew." },
+  { country: 'Hungary', plant: 'Tulip', poem: "The Tulip blooms in Hungary’s spring,\na symbol of joy, of life’s sweet wing.\nIn gardens bright, it paints the day,\nA flower of peace, in every way." },
+  { country: 'India', plant: 'Lotus', poem: "The Lotus rises, pure and grand,\nin India’s heart, across the land.\nA symbol of wisdom, strength, and light,\nIt blooms with beauty, in the sacred night." },
+  { country: 'Italy', plant: 'Lily', poem: "The Lily in Italy, pure and fair,\na symbol of beauty beyond compare.\nIt whispers of love, of art, of grace,\nIn Italy's gardens, it finds its place." },
+  { country: 'Indonesia', plant: 'Jasmine', poem: "The Jasmine blooms in Indonesia’s night,\nits fragrance fills the air with light.\nA symbol of love, soft and sweet,\nIt brings hearts together, hearts that meet." },
+  { country: 'Japan', plant: 'Cherry Blossom', poem: "The Cherry Blossom, soft and bright,\nin Japan’s spring, a pure delight.\nA symbol of beauty, fleeting yet true,\nIn Japan’s soul, it forever grew." },
+  { country: 'Jamaica', plant: 'Lignum Vitae', poem: "The Lignum Vitae, strong and tall,\nin Jamaica’s sun, it answers the call.\nA symbol of strength, with roots so deep,\nIn the island’s heart, its spirit keeps." },
+  { country: 'Kenya', plant: 'Yellow Acacia', poem: "The Yellow Acacia, bright and fair,\nin Kenya’s savanna, fills the air.\nA symbol of strength, so bold, so true,\nIn Kenya’s soul, it forever grew." },
+  { country: 'Kazakhstan', plant: 'Tulip', poem: "The Tulip blooms on Kazakhstan’s land,\na flower so vibrant, so bold, so grand.\nA symbol of spring, of hope anew,\nIn Kazakhstan’s heart, it will bloom through." },
+  { country: 'Liberia', plant: 'Flamboyant Tree', poem: "The Flamboyant blooms with colors bright,\nin Liberia’s land, a vivid sight.\nA symbol of freedom, bold and true,\nIts fire-red petals, like dreams that grew." },
+  { country: 'Latvia', plant: 'Lily of the Valley', poem: "The Lily of the Valley, soft and bright,\nin Latvia’s woods, a pure delight.\nA flower of peace, a symbol so true,\nIn Latvia’s heart, it will renew." },
+  { country: 'Morocco', plant: 'Red Rose', poem: "The Red Rose in Morocco’s air,\na symbol of love beyond compare.\nIts fragrance fills the desert night,\nA beauty so rare, a wondrous sight." },
+  { country: 'Mexico', plant: 'Dahlia', poem: "The Dahlia blooms in Mexico’s heat,\nwith colors bright, so wild, so sweet.\nA symbol of strength, in every shade,\nIn Mexico’s heart, it will never fade." },
+  { country: 'Madagascar', plant: 'Uapaca Trees', poem: "The Uapaca trees in Madagascar’s light,\nstand tall and proud, in the tropical night.\nA symbol of life, of growth so grand,\nIn Madagascar’s heart, it takes its stand." },
+  { country: 'Norway', plant: 'Purple Heather', poem: "The Purple Heather in Norway’s breeze,\nit whispers tales through the Arctic trees.\nA symbol of resilience, strength, and grace,\nIn Norway’s soul, it finds its place." },
+  { country: 'Nigeria', plant: 'Costus', poem: "The Costus blooms in Nigeria’s sun,\na flower of joy, of peace begun.\nIts golden petals, so bright, so true,\nIn Nigeria’s heart, it forever grew." },
+  { country: 'Nicaragua', plant: 'Sacuanjoche', poem: "The Sacuanjoche in Nicaragua’s air,\na symbol of beauty, beyond compare.\nIts fragrance sweet, its petals bright,\nIt fills the land with pure delight." },
+  { country: 'Oman', plant: 'Frankincense', poem: "The Frankincense in Oman’s land,\na symbol of peace, forever grand.\nIts fragrance fills the desert air,\nA gift of grace, beyond compare." },
+  { country: 'Poland', plant: 'White Lily', poem: "The White Lily in Poland’s skies,\na symbol of purity, as it flies.\nWith petals bright and fragrance sweet,\nIn Poland’s heart, its roots meet." },
+  { country: 'Portugal', plant: 'Lavender', poem: "The Lavender in Portugal’s light,\na flower of calm, of peace so bright.\nIts fragrance fills the southern air,\nIn Portugal’s heart, it’s always there." },
+  { country: 'Peru', plant: 'Cantuta', poem: "The Cantuta blooms in Peru’s highland air,\na symbol of life, so pure, so rare.\nWith colors bright and spirit free,\nIn Peru’s heart, it will always be." },
+  { country: 'Qatar', plant: 'Qatar’s Rose', poem: "The Qatar’s Rose in desert lands,\na symbol of beauty that ever stands.\nIts petals soft, its fragrance sweet,\nIn Qatar’s soul, it finds its seat." },
+  { country: 'Romania', plant: 'Rose', poem: "The Rose in Romania’s sun,\na symbol of love that’s never done.\nIts fragrance soft, its petals pure,\nA beauty that will always endure." },
+  { country: 'Spain', plant: 'Carnation', poem: "The Carnation blooms in Spain’s warm light,\na symbol of passion, bold and bright.\nIts petals soft, its fragrance sweet,\nIn Spain’s heart, it will never retreat." },
+  { country: 'South Korea', plant: 'Mugunghwa', poem: "The Mugunghwa blooms with colors bright,\nin South Korea’s land, it greets the light.\nA symbol of strength, of hope so true,\nIn South Korea’s heart, it forever grew." },
+  { country: 'Slovakia', plant: 'Tatra Flower', poem: "The Tatra Flower, so pure, so bold,\nin Slovakia’s mountains, a story is told.\nA symbol of grace in nature’s land,\nIn Slovakia’s heart, it will forever stand." },
+  { country: 'Turkey', plant: 'Tulip', poem: "The Tulip blooms in Turkey’s spring,\na symbol of beauty, an ancient king.\nIts colors bright, its petals true,\nIn Turkey’s soul, it forever grew." },
+  { country: 'Thailand', plant: 'Ratchaphruek', poem: "The Ratchaphruek in Thailand’s land,\na flower so bright, so bold, so grand.\nIt shines with joy, it fills the sky,\nIn Thailand’s heart, it will never die." },
+  { country: 'Uzbekistan', plant: 'Poppy', poem: "The Poppy blooms in Uzbekistan’s air,\na symbol of life, of beauty rare.\nIts colors bright, its fragrance sweet,\nIn Uzbekistan’s heart, it will meet." },
+  { country: 'Uruguay', plant: 'Yellow Jasmin', poem: "The Yellow Jasmine in Uruguay’s sun,\na flower of grace, a victory won.\nIts fragrance fills the southern breeze,\nIn Uruguay’s heart, it will always please." },
+  { country: 'Vietnam', plant: 'Lotus', poem: "The Lotus in Vietnam’s land,\na symbol of beauty, forever grand.\nIt rises in peace, with petals so pure,\nIn Vietnam’s heart, it will endure." },
+  { country: 'Venezuela', plant: 'Orchid', poem: "The Orchid in Venezuela’s skies,\na beauty that takes your heart by surprise.\nIts petals delicate, its fragrance sweet,\nIn Venezuela’s soul, it will meet." },
+  { country: 'Wallis and Futuna', plant: 'Tahitian Gardenia', poem: "The Tahitian Gardenia blooms so bright,\nin Wallis and Futuna’s purest light.\nA symbol of love, of beauty divine,\nIn its fragrance, hearts entwine." },
+  { country: 'Yemen', plant: 'Jasmine', poem: "The Jasmine blooms in Yemen’s night,\nits fragrance fills the air with light.\nA symbol of love, so pure, so sweet,\nIn Yemen’s heart, it finds its seat." },
+  { country: 'Zambia', plant: 'Bougainvillea', poem: "The Bougainvillea, bright and grand,\nin Zambia’s warmth, it fills the land.\nWith colors bold, it climbs the trees,\nIn Zambia’s soul, it rides the breeze." }
+];
+
+
+ // Tylko wklej tutaj poniższy kod
+    function getWeekNumber() {
+      const currentDate = new Date();
+      const startDate = new Date(currentDate.getFullYear(), 0, 1); // Pierwszy dzień roku
+      const days = Math.floor((currentDate - startDate) / (1000 * 60 * 60 * 24));
+      const weekNumber = Math.ceil((days + 1) / 7); // Numer tygodnia
+      console.log("Current Week Number: ", weekNumber); // Logowanie numeru tygodnia
+      return weekNumber;
+    }
+
+    function displayFlower() {
+      const weekNumber = getWeekNumber(); // Pobierz numer tygodnia
+      const flowerIndex = (weekNumber - 1) % plantsAndPoems.length; // Wylicz indeks na podstawie tygodnia
+
+      console.log("Selected Flower Index: ", flowerIndex); // Logowanie indeksu rośliny
+
+      const randomFlower = plantsAndPoems[flowerIndex];
+      const flowerDiv = document.getElementById('flower');
+      flowerDiv.innerHTML = `
+        <h2>${randomFlower.country}: ${randomFlower.plant}</h2>
+        <p>${randomFlower.poem}</p>
+      `;
+    }
+
+    displayFlower(); // Wyświetl roślinę i wiersz na podstawie numeru tygodnia
+  </script>
+</body>
+</html>
